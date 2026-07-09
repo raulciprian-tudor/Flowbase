@@ -11,8 +11,6 @@ import { fileURLToPath } from 'node:url';
 const serverDistFolder = dirname(fileURLToPath(import.meta.url));
 const browserDistFolder = resolve(serverDistFolder, '../browser');
 
-const unusedVar = 123;
-
 const app = express();
 const angularApp = new AngularNodeAppEngine();
 
