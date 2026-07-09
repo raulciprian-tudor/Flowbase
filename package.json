@@ -4,7 +4,12 @@
   "license": "MIT",
   "scripts": {
     "dev": "nx run-many --target=serve --projects=Flowbase,api --parallel=2",
-    "prepare": "husky"
+    "prepare": "husky",
+    "db:up": "docker compose up -d",
+    "db:down": "docker compose down",
+    "prisma:generate": "prisma generate",
+    "prisma:migrate": "prisma migrate dev",
+    "prisma:studio": "prisma studio"
   },
   "private": true,
   "dependencies": {
@@ -18,8 +23,11 @@
     "@angular/router": "~21.2.0",
     "@angular/ssr": "~21.2.0",
     "@nestjs/common": "^11.0.0",
+    "@nestjs/config": "^4.0.4",
     "@nestjs/core": "^11.0.0",
     "@nestjs/platform-express": "^11.0.0",
+    "@prisma/adapter-pg": "^7.8.0",
+    "@prisma/client": "^7.8.0",
     "axios": "^1.6.0",
     "express": "^4.21.2",
     "reflect-metadata": "^0.2.0",
@@ -67,6 +75,7 @@
     "lint-staged": "^17.0.8",
     "nx": "23.0.1",
     "prettier": "~3.6.2",
+    "prisma": "^7.8.0",
     "ts-jest": "^29.4.0",
     "ts-node": "10.9.1",
     "tslib": "^2.3.0",

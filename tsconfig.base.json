@@ -14,7 +14,8 @@
     "skipLibCheck": true,
     "skipDefaultLibCheck": true,
     "paths": {
-      "@flowbase/shared-dto": ["./libs/shared/dto/src/index.ts"]
+      "@flowbase/shared-dto": ["./libs/shared/dto/src/index.ts"],
+      "@flowbase/shared-database": ["./libs/shared/database/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]
