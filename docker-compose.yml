@@ -1,0 +1,21 @@
+services:
+  postgres:
+    image: postgres:16-alpine
+    container_name: flowbase-postgres
+    restart: unless-stopped
+    ports:
+      - '5432:5432'
+    environment:
+      POSTGRES_USER: flowbase
+      POSTGRES_PASSWORD: flowbase
+      POSTGRES_DB: flowbase
+    volumes:
+      - flowbase-postgres-data:/var/lib/postgresql/data
+    healthcheck:
+      test: ['CMD-SHELL', 'pg_isready -U flowbase -d flowbase']
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+volumes:
+  flowbase-postgres-data:
