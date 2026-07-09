@@ -50,3 +50,6 @@ test-results
 # Misc
 .env.local
 *.tsbuildinfo
+
+# Angular
+.angular
