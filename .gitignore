@@ -1,49 +1,55 @@
-# See https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# Nx
+.nx/cache
+.nx/workspace-data
 
-# compiled output
+# Compiled output
 dist
 tmp
 out-tsc
+/apps/*/dist
+/libs/*/dist
 
-# dependencies
+# Dependencies
 node_modules
 
-# IDEs and editors
-/.idea
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Environment files — never commit real secrets, only .env.example
+.env
+.env.local
+.env.*.local
+!.env.example
 
-# IDE - VSCode
+# IDE - VS Code
 .vscode/*
+!.vscode/extensions.json
 !.vscode/settings.json
 !.vscode/tasks.json
 !.vscode/launch.json
-!.vscode/extensions.json
 
-# misc
-/.sass-cache
-/connect.lock
-/coverage
-/libpeerconnection.log
-npm-debug.log
-yarn-error.log
-testem.log
-/typings
+# IDE - JetBrains (Rider, WebStorm)
+.idea
+*.iml
 
-# System Files
+# OS files
 .DS_Store
 Thumbs.db
 
-.nx/cache
-.nx/workspace-data
-.nx/migrate-runs
-.claude/worktrees
-.claude/settings.local.json
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
 
+# Testing
+/coverage
+/apps/*/test-output
+/apps/*-e2e/test-output
+playwright-report
+blob-report
+test-results
+
+# Misc
+.env.local
+*.tsbuildinfo
+
+# Angular
 .angular
-
-__screenshots__/
