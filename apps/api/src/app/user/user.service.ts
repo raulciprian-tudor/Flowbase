@@ -8,6 +8,7 @@ import { RegisterDto } from '../dto/register.dto';
 export class UsersService {
   constructor(private readonly prisma: PrismaService) {}
 
+  // Create User
   async create(dto: RegisterDto): Promise<UserDto> {
     // Reject duplicate
     const existing = await this.prisma.user.findUnique({
@@ -40,5 +41,26 @@ export class UsersService {
       createdAt: user.createdAt,
       updatedAt: user.updatedAt,
     };
+  }
+
+  async findByEmail() {
+    // to do
+  }
+
+  // Set Refresh Token
+  async setRefreshToken(userId: string, refreshToken: string) {
+    const hashedRefreshToken = await bcrypt.hash(refreshToken, 12); // hash token
+    await this.prisma.user.update({
+      where: { id: userId },
+      data: { hashedRefreshToken }, // add hashed token to user
+    });
+  }
+
+  // Clear refresh token
+  async clearRefreshToken(userId: string) {
+    await this.prisma.user.update({
+      where: { id: userId },
+      data: { hashedRefreshToken: null }, // set hashed token to null
+    });
   }
 }
