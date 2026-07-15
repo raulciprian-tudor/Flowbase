@@ -12,8 +12,6 @@
   ],
   "compilerOptions": {
     "esModuleInterop": true,
-    "incremental": true,
-    "tsBuildInfoFile": ".tsbuildinfo",
     "skipLibCheck": true
   }
 }

@@ -11,10 +11,12 @@ datasource db {
 
 // Starter model mirroring @flowbase/shared-dto UserDto.
 model User {
-  id          String   @id @default(uuid())
-  email       String   @unique
-  name        String
-  displayName String
-  createdAt   DateTime @default(now())
-  updatedAt   DateTime @updatedAt
+  id                 String   @id @default(uuid())
+  email              String   @unique
+  name               String?
+  displayName        String?
+  passwordHash       String
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+  hashedRefreshToken String?
 }
